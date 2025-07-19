@@ -23,13 +23,13 @@ export default function HeroPage() {
                     className="text-2xl font-bold text-yellow-400 cursor-pointer"
                     onClick={() => navigate("/")}
                 >
-                    CareerMate 🚀
+                    CareerBuddy 🚀
                 </div>
                 <div className="flex gap-6 text-white font-medium">
                     <button onClick={() => navigate("/profile")} className="cursor-pointer hover:text-yellow-300">Profile</button>
                     <button onClick={() => navigate("/jobs/matchResults")} className="cursor-pointer hover:text-yellow-300">Match Jobs</button>
                     <button onClick={() => navigate("/resume/builder")} className="cursor-pointer hover:text-yellow-300">Build Resume</button>
-                    <button onClick={() => navigate("/learning/resources")} className="cursor-pointer hover:text-yellow-300">Get Courses</button>
+                    <button onClick={() => navigate("/learning/resources")} className="cursor-pointer hover:text-yellow-300">Explore Courses</button>
                 </div>
             </nav>
 

@@ -30,7 +30,6 @@ export default function SideNavbar(props) {
     }
 
     const list = [
-        { name: "Dashboard", icon: <MdDashboard /> },
         { name: "Profile", icon: <CgProfile />, to: "profile" },
         { name: "Job Matcher", icon: <MdWork />, to: "jobs/matchResults" },
         { name: "Resources", icon: <FaBookReader />, to: "learning/resources" },
