@@ -14,5 +14,8 @@ RUN npx playwright install --with-deps
 # Copy the rest of your code
 COPY . .
 
+# Expose the port your Express app listens on (e.g., 3000)
+EXPOSE 3000
+
 # Run your script (change this if your entry point differs)
 CMD ["node", "index.js"]

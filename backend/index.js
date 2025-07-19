@@ -22,9 +22,9 @@ app.use('/api/resume', resumeRouter)
 app.post('/api/search/jobs', searchJobInfo)
 app.post('/api/search/courses', searchCourse)
 
-app.listen(3000, ()=>{
-    console.log("Listening at port 3000...")
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 mongoose.connect(`mongodb+srv://ghosalsatirtha:${process.env.MONGODB_PASSWORD}@cluster0.euqlupl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
 .then(()=>{
