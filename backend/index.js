@@ -22,6 +22,8 @@ app.use('/api/resume', resumeRouter)
 app.post('/api/search/jobs', searchJobInfo)
 app.post('/api/search/courses', searchCourse)
 
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
