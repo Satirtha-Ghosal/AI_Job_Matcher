@@ -18,7 +18,7 @@ export default function Login() {
 
         try {
             // Replace with your actual login API call
-            const res = await fetch("http://localhost:3000/api/auth/signIn", {
+            const res = await fetch("https://ai-job-matcher-wlii.onrender.com/api/auth/signIn", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

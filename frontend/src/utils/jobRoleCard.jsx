@@ -53,7 +53,7 @@ export default function JobRoleCard({ role, missingSkills, matchedSkills, _id, j
                 missing_skills: missingSkills
             }
 
-            const res = await fetch('http://localhost:3000/api/userInfo/saveJobRole', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/saveJobRole', {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

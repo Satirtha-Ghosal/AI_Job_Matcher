@@ -42,7 +42,7 @@ export default function SkillAnalysis() {
             const fetchCourses = async () => {
                 try {
                     isDetailsPaneLoading(true);
-                    const res = await fetch('http://localhost:3000/api/search/courses', {
+                    const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/search/courses', {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json"
@@ -85,7 +85,7 @@ export default function SkillAnalysis() {
                         return;
                     }
                     isLoading(true)
-                    const res = await fetch('http://localhost:3000/api/userInfo/getJobRolesByID', {
+                    const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getJobRolesByID', {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",
@@ -156,7 +156,7 @@ export default function SkillAnalysis() {
 
                 console.log(payload)
 
-                const res = await fetch('http://localhost:3000/api/userInfo/saveCourse', {
+                const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/saveCourse', {
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json",
@@ -198,7 +198,7 @@ export default function SkillAnalysis() {
                 return;
             }
             isModalLoading(true)
-            const res = await fetch('http://localhost:3000/api/userInfo/updateSkill', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/updateSkill', {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",

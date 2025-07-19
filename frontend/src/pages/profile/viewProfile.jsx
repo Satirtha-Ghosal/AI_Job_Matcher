@@ -50,7 +50,7 @@ export default function ViewProfile() {
                     return;
                 }
                 isLoading(true);
-                const res = await fetch('http://localhost:3000/api/userInfo/getUserInfo', {
+                const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getUserInfo', {
                     headers: {
                         "Content-Type": "application/json",
                         "authorization": `Bearer ${token}`,

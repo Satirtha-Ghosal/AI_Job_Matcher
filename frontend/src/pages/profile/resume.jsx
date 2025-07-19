@@ -181,7 +181,7 @@ export default function ResumeBuilder() {
         navigate(".././auth/login");
         return;
       }
-      const response = await fetch("http://localhost:3000/api/resume/optimizeResume", {
+      const response = await fetch("https://ai-job-matcher-wlii.onrender.com/api/resume/optimizeResume", {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -247,7 +247,7 @@ export default function ResumeBuilder() {
                 navigate(".././auth/login");
                 return;
             }
-      const response = await fetch("http://localhost:3000/api/resume/buildResume", {
+      const response = await fetch("https://ai-job-matcher-wlii.onrender.com/api/resume/buildResume", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

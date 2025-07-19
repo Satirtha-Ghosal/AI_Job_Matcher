@@ -24,7 +24,7 @@ export default function JobDetails() {
                 if (message) {
                     console.log("Hitting api")
                     console.log(message)
-                    const data = await fetch('http://localhost:3000/api/search/jobs', {
+                    const data = await fetch('https://ai-job-matcher-wlii.onrender.com/api/search/jobs', {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

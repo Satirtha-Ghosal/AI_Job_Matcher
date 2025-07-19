@@ -78,7 +78,7 @@ export default function JobRole() {
                 return;
             }
             isLoading(true);
-            const res = await fetch('http://localhost:3000/api/userInfo/getTopJobs', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getTopJobs', {
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -120,7 +120,7 @@ export default function JobRole() {
                 return;
             }
             isGeneralModalLoading(true)
-            const res = await fetch('http://localhost:3000/api/userInfo/getSuggestedRoles',{
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getSuggestedRoles',{
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -159,7 +159,7 @@ export default function JobRole() {
                 return;
             }
             isGeneralModalLoading(true);
-            const res = await fetch('http://localhost:3000/api/userInfo/getSavedRoles',{
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getSavedRoles',{
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -197,7 +197,7 @@ export default function JobRole() {
                 return;
             }
             isGeneralModalLoading(true);
-            const res = await fetch('http://localhost:3000/api/userInfo/getAppliedJobs',{
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getAppliedJobs',{
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -235,7 +235,7 @@ export default function JobRole() {
                 return;
             }
             isGeneralModalLoading(true)
-            const res = await fetch('http://localhost:3000/api/userInfo/getSavedJobs',{
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/getSavedJobs',{
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -270,7 +270,7 @@ export default function JobRole() {
 
         try {
             isJobVacancyModalLoading(true)
-            const res = await fetch('http://localhost:3000/api/search/jobs', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/search/jobs', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -308,7 +308,7 @@ export default function JobRole() {
                 return;
             }
             isJobRoleModalLoading(true)
-            const res = await fetch('http://localhost:3000/api/userInfo/searchJobRoles', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/searchJobRoles', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -351,7 +351,7 @@ export default function JobRole() {
                 return;
             }
             isLoading(true)
-            const res = await fetch(`http://localhost:3000/api/userInfo/deleteSavedJob/${id}`, {
+            const res = await fetch(`https://ai-job-matcher-wlii.onrender.com/api/userInfo/deleteSavedJob/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -395,7 +395,7 @@ export default function JobRole() {
                 return;
             }
             isLoading(true)
-            const res = await fetch(`http://localhost:3000/api/userInfo/deleteAppliedJob/${id}`, {
+            const res = await fetch(`https://ai-job-matcher-wlii.onrender.com/api/userInfo/deleteAppliedJob/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -438,7 +438,7 @@ export default function JobRole() {
                 return;
             }
             isLoading(true);
-            const res = await fetch(`http://localhost:3000/api/userInfo/deleteSavedJobRole/${id}`, {
+            const res = await fetch(`https://ai-job-matcher-wlii.onrender.com/api/userInfo/deleteSavedJobRole/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

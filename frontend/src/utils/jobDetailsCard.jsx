@@ -19,7 +19,7 @@ export default function JobDetailsCard({ title, company, description, location, 
                 return;
             }
             isLoading(true);
-            const res = await fetch('http://localhost:3000/api/userInfo/saveJobVacancy', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/saveJobVacancy', {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function JobDetailsCard({ title, company, description, location, 
                 navigate(".././auth/login");
                 return;
             }
-            const res = await fetch('http://localhost:3000/api/userInfo/saveAppliedJob', {
+            const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/saveAppliedJob', {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -36,7 +36,7 @@ export default function Resources() {
                     return;
                 }
                 isLoading(true);
-                const res = await fetch("http://localhost:3000/api/userInfo/getTopSavedCourses",{
+                const res = await fetch("https://ai-job-matcher-wlii.onrender.com/api/userInfo/getTopSavedCourses",{
                     headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -78,7 +78,7 @@ export default function Resources() {
                 return;
             }
             isModalLoading(true);
-            const res = await fetch("http://localhost:3000/api/userInfo/getAllSavedCourses",{
+            const res = await fetch("https://ai-job-matcher-wlii.onrender.com/api/userInfo/getAllSavedCourses",{
                 headers: {
                     "Content-Type": "application/json",
                     "authorization": `Bearer ${token}`,
@@ -123,7 +123,7 @@ export default function Resources() {
         console.log(params)
         try {
             isLoading(true);
-            const res = await fetch(`http://localhost:3000/api/search/courses?${params.toString()}`, {
+            const res = await fetch(`https://ai-job-matcher-wlii.onrender.com/api/search/courses?${params.toString()}`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -171,7 +171,7 @@ export default function Resources() {
 
                 console.log(payload)
 
-                const res = await fetch('http://localhost:3000/api/userInfo/saveCourse', {
+                const res = await fetch('https://ai-job-matcher-wlii.onrender.com/api/userInfo/saveCourse', {
                     method: 'PUT',
                     headers: {
                         "Content-Type": "application/json",
