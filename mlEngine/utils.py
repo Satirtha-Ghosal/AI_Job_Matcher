@@ -6,9 +6,7 @@ from huggingface_hub import hf_hub_download
 import os
 
 # Ensure HF cache uses writeable directory
-os.environ["HF_HOME"] = "/data/.cache/huggingface"
-os.environ["TRANSFORMERS_CACHE"] = "/data/.cache/huggingface/transformers"
-os.environ["HF_HUB_CACHE"] = "/data/.cache/huggingface/hub"
+os.environ["HF_HOME"] = "/tmp/huggingface"
 
 
 model = SentenceTransformer('all-MiniLM-L6-v2')

@@ -3,13 +3,13 @@ FROM python:3.10-slim
 # Set workdir
 WORKDIR /app
 
-# Set Hugging Face cache directory to avoid permission issues
-ENV HF_HOME=/data/.cache/huggingface
-ENV TRANSFORMERS_CACHE=/data/.cache/huggingface/transformers
-ENV HF_HUB_CACHE=/data/.cache/huggingface/hub
+# ✅ Set Hugging Face cache directory (only use HF_HOME — it's enough)
+ENV HF_HOME=/tmp/huggingface
+RUN mkdir -p $HF_HOME && chmod -R 777 $HF_HOME
 
-# Create cache dirs
-RUN mkdir -p $HF_HOME $TRANSFORMERS_CACHE $HF_HUB_CACHE
+
+# ✅ Let HF Spaces know what port to expect
+ENV PORT=7860
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*

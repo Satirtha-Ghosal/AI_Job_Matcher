@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 import faiss
@@ -9,13 +10,20 @@ from sentence_transformers import util
 from huggingface_hub import hf_hub_download
 import os
 
-# Ensure HF cache uses writeable directory
-os.environ["HF_HOME"] = "/data/.cache/huggingface"
-os.environ["TRANSFORMERS_CACHE"] = "/data/.cache/huggingface/transformers"
-os.environ["HF_HUB_CACHE"] = "/data/.cache/huggingface/hub"
+app = FastAPI()
 
+# Optional: Enable CORS if needed for frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# Download and load utility files from Hugging Face Hub
+# --- Hugging Face cache ---
+os.environ["HF_HOME"] = "/tmp/huggingface"
+
+# --- Load data from Hugging Face Hub ---
 csv_path = hf_hub_download(repo_id="Satirtha-Ghosal/JobMatcher", filename="final_jobs.csv", repo_type="model")
 index_path = hf_hub_download(repo_id="Satirtha-Ghosal/JobMatcher", filename="faiss_jobs_cleaned.index", repo_type="model")
 title_index_path = hf_hub_download(repo_id="Satirtha-Ghosal/JobMatcher", filename="faiss_titles.index", repo_type="model")
@@ -25,8 +33,13 @@ df["normalized_skills"] = df["normalized_skills"].apply(lambda x: eval(x))
 index = faiss.read_index(index_path)
 title_index = faiss.read_index(title_index_path)
 
-app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "FastAPI is running"}
 
+@app.get("/test")
+def test():
+    return {"status": "success"}
 
 class SkillRequest(BaseModel):
     skills: List[str]
@@ -36,7 +49,6 @@ def match_jobs(req: SkillRequest):
     user_skills = req.skills
     norm_skills = normalize_skills_fast(user_skills)
     user_embedding = model.encode([" ".join(norm_skills)])
-
     distances, indices = index.search(user_embedding, 10)
     candidate_jobs = df.iloc[indices[0]].copy()
 
@@ -62,7 +74,7 @@ def match_jobs(req: SkillRequest):
             if sim_scores.max().item() >= threshold:
                 matched.append(job_skill_clean.title())
         return matched
-    
+
     def compute_custom_score(job_skills, user_skills, missing_skills):
         total = len(job_skills)
         matched = total - len(missing_skills)
@@ -97,12 +109,8 @@ class TitleSkillRequest(BaseModel):
 def match_jobs_by_title(req: TitleSkillRequest):
     job_title = req.job_title
     user_skills = req.skills
-
     norm_skills = normalize_skills_fast(user_skills)
-
     title_embedding = model.encode([job_title])
-
-    # Search title index
     distances, indices = title_index.search(title_embedding, 10)
     candidate_jobs = df.iloc[indices[0]].copy()
 
@@ -115,7 +123,7 @@ def match_jobs_by_title(req: TitleSkillRequest):
             if sim.max().item() < threshold:
                 missing.append(skill.title())
         return missing
-    
+
     def find_matched_skills(job_skills, user_skills, threshold=0.5):
         user_embeddings = model.encode(user_skills, convert_to_tensor=True)
         matched = []
@@ -138,7 +146,6 @@ def match_jobs_by_title(req: TitleSkillRequest):
         score -= 0.1 * len(missing_skills)
         return score
 
-
     scored = []
     for _, row in candidate_jobs.iterrows():
         job_skills = row["normalized_skills"]
@@ -156,7 +163,6 @@ def match_jobs_by_title(req: TitleSkillRequest):
     sorted_jobs = sorted(scored, key=lambda x: x["score"], reverse=True)
     return sorted_jobs[:10]
 
-
 class JobEvaluationRequest(BaseModel):
     skills: List[str]
     job_ids: List[str]
@@ -165,8 +171,6 @@ class JobEvaluationRequest(BaseModel):
 def evaluate_selected_jobs(req: JobEvaluationRequest):
     user_skills = req.skills
     job_ids = req.job_ids
-
-    # Normalize user skills
     norm_skills = normalize_skills_fast(user_skills)
 
     def find_missing_skills(job_skills, user_skills, threshold=0.5):
@@ -197,8 +201,7 @@ def evaluate_selected_jobs(req: JobEvaluationRequest):
         job_id = int(job_id)
         row = df[df["id"] == job_id]
         if row.empty:
-            continue  # skip if ID not found
-
+            continue
         row = row.iloc[0]
         job_skills = row["normalized_skills"]
         matched = find_matched_skills(job_skills, norm_skills)
@@ -212,4 +215,3 @@ def evaluate_selected_jobs(req: JobEvaluationRequest):
         })
 
     return results
-
