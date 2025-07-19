@@ -1,0 +1,37 @@
+@import "tailwindcss";
+*{
+  box-sizing: border-box;
+}
+@keyframes thanosSnapOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes thanosSnapIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+.snap-out {
+  animation: thanosSnapOut 0.5s forwards;
+}
+
+.snap-in {
+  animation: thanosSnapIn 0.5s forwards;
+}
