@@ -46,17 +46,17 @@ Recommendations based on user goals, location, and current expertise.
 **3. Job Role Suggestion Engine**
 - Triggered after profile update
 - Uses FastAPI service with:
-* BERT for sentence embedding*
-* FAISS for vector similarity
-* Suggests roles matching skills
+    - BERT for sentence embedding*
+    - FAISS for vector similarity
+    - Suggests roles matching skills
 
 **4. Job Vacancies Explorer**
 - Uses Adzuna API
 - User can:
-- - View job details
-- - Save to favorites or applied
-- - Filter/search
-- - Shows skill gap analysis for each job using profile vs job vector difference
+    - View job details
+    - Save to favorites or applied
+    - Filter/search
+    - Shows skill gap analysis for each job using profile vs job vector difference
 - "Apply" redirects to external URL
 
 **5. Skill Gap & Course Recommendation**
