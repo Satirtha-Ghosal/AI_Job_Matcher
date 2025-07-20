@@ -2,6 +2,7 @@
 
 CareerBuddy is a full-stack web application that transforms users from job-seekers of all domain into job-ready professionals. From skill analysis to smart resume building, and even live job discovery – CareerBuddy is your one-stop AI companion on the journey to employment.
 
+### Visit at : [CareerBuddy](careerbuddy-beta.vercel.app)
 ---
 
 ## ✨ Features
