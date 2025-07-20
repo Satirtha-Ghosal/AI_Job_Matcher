@@ -111,6 +111,11 @@ Recommendations based on user goals, location, and current expertise.
 - ML Model: Hugging Face Spaces (FastAPI)
 - DB: MongoDB Atlas
 
+### 🔹 DataSet Used
+- 1.3M Linkedin Jobs & Skills (2024):
+    - Scraped Jobs from Linkedin. Augmented with Job Skills
+    - [Link📎](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024)
+
 ---
 
 ## Architecture
