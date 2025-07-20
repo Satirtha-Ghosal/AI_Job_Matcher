@@ -60,28 +60,28 @@ Recommendations based on user goals, location, and current expertise.
 - "Apply" redirects to external URL
 
 **5. Skill Gap & Course Recommendation**
-Skill differences → matched to scraped course list
-Live scraping filters:
-Free/Paid
-Difficulty: Beginner / Intermediate / Advanced
-Certificate: Yes / No
+- Skill differences → Scrapes courses on the fly
+- Live scraping filters:
+    - Free/Paid
+    - Difficulty: Beginner / Intermediate / Advanced
+    - Certificate: Yes / No
 
 **6. Resume Builder + Optimizer**
-Users can:
-Manually upload a resume
-Or use app’s resume builder
-Optimized via:
-Gemini 2.5 Flash
-Section-wise feedback
-Missing JD keywords
-ATS score + suggestions
+- Users can:
+    - Manually upload a resume
+    - Or use app’s resume builder
+- Optimized via:
+    - Gemini 2.5 Flash
+    - Section-wise feedback
+    - Missing JD keywords
+    - ATS score + suggestions
 
 **7. Saved Items**
-User can save:
-Job roles
-Vacancies
-Courses
-Applied jobs
+- User can save:
+    - Job roles
+    - Vacancies
+    - Courses
+    - Applied jobs
 
 ---
 
@@ -147,23 +147,16 @@ Applied jobs
 
 ## ⚙️ Getting Started
 
-Before you begin, make sure you have the following installed:
+# Before you begin, make sure you have the following installed:
 
-Node.js (v18 or later)
-
-npm or yarn
-
-Python 3.10+ with pip
-
-MongoDB Atlas Account
-
-Adzuna API Key (for job search integration)
-
-FAISS-compatible system 
-
-Hugging Face Transformers (sentence-transformers)
-
-Gemini API key (for resume generation)
+- Node.js (v18 or later)
+- npm or yarn
+- Python 3.10+ with pip
+- MongoDB Atlas Account
+- Adzuna API Key (for job search integration)
+- FAISS-compatible system 
+- Hugging Face Transformers (sentence-transformers)
+- Gemini API key (for resume generation)
 
 ### 1. Clone the Repo
 ```bash
