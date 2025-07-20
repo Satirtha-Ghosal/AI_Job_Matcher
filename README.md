@@ -1,6 +1,6 @@
 # 🚀 CareerBuddy – AI-Powered Career Transformation Platform
 
-CareerBuddy is a full-stack web application that transforms users from job-seekers into job-ready professionals. From skill analysis to smart resume building, and even live job discovery – CareerBuddy is your one-stop AI companion on the journey to employment.
+CareerBuddy is a full-stack web application that transforms users from job-seekers of all domain into job-ready professionals. From skill analysis to smart resume building, and even live job discovery – CareerBuddy is your one-stop AI companion on the journey to employment.
 
 ---
 
@@ -36,12 +36,11 @@ Recommendations based on user goals, location, and current expertise.
 - Tokens stored client-side securely
 
 **2. User Profile System**
-# Stores:
-
-- Personal Info
-- Skills
-- Experience, Education
-- Projects, Certificates
+- Stores:
+    - Personal Info
+    - Skills
+    - Experience, Education
+    - Projects, Certificates
 
 **3. Job Role Suggestion Engine**
 - Triggered after profile update
