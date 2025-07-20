@@ -1,16 +1,19 @@
 const JobInfo = require('../model/jobDesc.model.js')
 const axios = require('axios')
 const https = require('https')
+require('dotenv').config()
 
 const scraper = require('../utils/scraper.js')
 
 const searchJobInfo = async (req, res) => {
     try {
         const { title, skills } = req.body
+        const APP_ID = process.env.ADZUNA_APP_ID
+        const APP_KEY = process.env.ADZUNA_APP_KEY
 
         try {
-            console.log(`https://api.adzuna.com/v1/api/jobs/in/search/1?app_id=301e4cd7&app_key=197889c811210760f8b7320719dc22a1&what=${title}&what_or=${skills}&max_days_old=20`)
-            const jobsFetched = await axios.get(`https://api.adzuna.com/v1/api/jobs/in/search/1?app_id=301e4cd7&app_key=197889c811210760f8b7320719dc22a1&what=${title}&what_or=${skills}&max_days_old=20`, {
+            console.log(`https://api.adzuna.com/v1/api/jobs/in/search/1?app_id=${APP_ID}&app_key=${APP_KEY}&what=${title}&what_or=${skills}&max_days_old=20`)
+            const jobsFetched = await axios.get(`https://api.adzuna.com/v1/api/jobs/in/search/1?app_id=${APP_ID}&app_key=${APP_KEY}&what=${title}&what_or=${skills}&max_days_old=20`, {
                 timeout: 15000, // 15 seconds timeout
                 httpsAgent: new https.Agent({ family: 4 }), // force IPv4
                 headers: {
