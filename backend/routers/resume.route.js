@@ -6,7 +6,7 @@ const { getResume, getOptimizedResume } = require('../controllers/resume')
 const resumeRouter = express.Router()
 resumeRouter.use(authenticateToken)
 
-resumeRouter.post('/buildResume/:userid', getResume)
-resumeRouter.post('/optimizeResume/:userid', getOptimizedResume)
+resumeRouter.post('/buildResume', getResume)
+resumeRouter.post('/optimizeResume', getOptimizedResume)
 
 module.exports = resumeRouter
