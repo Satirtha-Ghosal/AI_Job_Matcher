@@ -242,6 +242,7 @@ export default function ResumeBuilder() {
     setOverleafURL(null);
 
     try {
+      const token = localStorage.getItem("token");
       if (!token) {
                 toast.error("You must be logged in.");
                 navigate(".././auth/login");
