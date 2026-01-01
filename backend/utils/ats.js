@@ -178,7 +178,7 @@ Do not return section weights under match_scores. Instead, assign a real alignme
 
 async function optimizeResume(jd, profile, weights, resume) {
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-pro",
+    model: "gemini-2.5-flash",
     contents: `
   1. Job Description: ${jd}
   2. Applicant Resume: ${resume}
